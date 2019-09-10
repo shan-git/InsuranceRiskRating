@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:action="http:///com/tibco/cep/decision/tree/model/node/action" xmlns:condition="http:///com/tibco/cep/decision/tree/model/node/condition" xmlns:edge="http:///com/tibco/cep/decision/tree/model/edge" xmlns:terminal="http:///com/tibco/cep/decision/tree/model/terminal" xmlns:tree="http:///com/tibco/cep/decision/tree/model/DecisionTree.ecore">
+  <tree:DecisionTree nodes="/1 1 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45 47 49 51 53 55 57 59 61 63 65 67 69 71 73 75 77 79 81 83 85 87 89 91 93 95 97 99 101 103 105 107 109 111 113 115 117 119 121 123 125 127 129 131 133 135 137 139 141 143 145 147 149 151 153 155 157 159 161 163 165 167 169 171 173 175 177 179 181" edges="2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118 120 122 124 126 128 130 132 134 136 138 140 142 144 146 148 150 152 154 156 158 160 162 164 166 168 170 172 174 176 178 180 182" startNode="/1"/>
+  <terminal:Start name="start" outEdge="2"/>
+  <condition:BoolCond id="1" name="applicationreceived.Person.Weight> applicationreceived.RiskLimits.StandardWeight &amp;&amp; &lt; (applicationreceived.RiskLimits.StandardWeight + applicationreceived.RiskLimits.AllowedWeightDeviation )" inEdges="2" outEdge="4" falseEdge="10"/>
+  <condition:BoolCond id="3" name="applicationreceived.Person.Chest=" inEdges="4" outEdge="6"/>
+  <action:Action id="5" name="Custom Action 1 = System.debugOut(&quot;Marginal OverWeight&quot;)" inEdges="6" outEdge="8"/>
+  <action:Action id="7" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 10" inEdges="8"/>
+  <condition:BoolCond id="9" name="applicationreceived.Person.Weight> (applicationreceived.RiskLimits.StandardWeight + applicationreceived.RiskLimits.AllowedWeightDeviation ) &amp;&amp; &lt; (applicationreceived.RiskLimits.StandardWeight + 2 * applicationreceived.RiskLimits.AllowedWeightDeviation )" inEdges="10" outEdge="12" falseEdge="16"/>
+  <action:Action id="11" name="Custom Action 1 = System.debugOut(&quot;OverWeight&quot;)" inEdges="12" outEdge="14"/>
+  <action:Action id="13" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 20" inEdges="14"/>
+  <condition:BoolCond id="15" name="applicationreceived.Person.Weight> (applicationreceived.RiskLimits.StandardWeight - applicationreceived.RiskLimits.AllowedWeightDeviation ) &amp;&amp; &lt; applicationreceived.RiskLimits.StandardWeight" inEdges="16" outEdge="18" falseEdge="22"/>
+  <action:Action id="17" name="Custom Action 1 = System.debugOut(&quot;Marginal UnderWeight&quot;)" inEdges="18" outEdge="20"/>
+  <action:Action id="19" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 20" inEdges="20"/>
+  <condition:BoolCond id="21" name="applicationreceived.Person.Weight&lt; (applicationreceived.RiskLimits.StandardWeight - applicationreceived.RiskLimits.AllowedWeightDeviation ) &amp;&amp; > (applicationreceived.RiskLimits.StandardWeight - 2 * applicationreceived.RiskLimits.AllowedWeightDeviation )" inEdges="22" outEdge="24"/>
+  <action:Action id="23" name="Custom Action 1 = System.debugOut(&quot;UnderWeight&quot;)" inEdges="24" outEdge="178"/>
+  <action:Action id="25" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 30" inEdges="26"/>
+  <condition:BoolCond id="27" name="applicationreceived.Person.Chest&lt; applicationreceived.RiskLimits.IdealChestExpansion" inEdges="28" outEdge="30"/>
+  <condition:BoolCond id="29" name="applicationreceived.Person.MedicalHistory.LimbDeformity=" inEdges="30" outEdge="32"/>
+  <action:Action id="31" name="Custom Action 1 = System.debugOut(&quot;Chest Expansion not ideal&quot;)" inEdges="32" outEdge="34"/>
+  <action:Action id="33" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 10" inEdges="34"/>
+  <condition:BoolCond id="35" name="applicationreceived.Person.AbdominalGirth> applicationreceived.RiskLimits.MaxAbdominalGirth" inEdges="36" outEdge="38"/>
+  <condition:BoolCond id="37" name="applicationreceived.Person.MedicalHistory.LimbDeformity=" inEdges="38" outEdge="40"/>
+  <action:Action id="39" name="Custom Action 1 = System.debugOut(&quot;Abdominal Girth Problem&quot;)" inEdges="40" outEdge="42"/>
+  <action:Action id="41" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 20" inEdges="42"/>
+  <condition:BoolCond id="43" name="applicationreceived.Person.Pulse&lt; applicationreceived.RiskLimits.MinPulseRate || > applicationreceived.RiskLimits.MaxPulseRate" inEdges="44" outEdge="46"/>
+  <action:Action id="45" name="Custom Action 1 = System.debugOut(&quot;Abnormal Pulse Rate&quot;)" inEdges="46" outEdge="48"/>
+  <action:Action id="47" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 20" inEdges="48"/>
+  <condition:BoolCond id="49" name="applicationreceived.Person.SysPressure&lt; applicationreceived.RiskLimits.MinSysPressure || > applicationreceived.RiskLimits.MaxSysPressure" inEdges="50" outEdge="52"/>
+  <action:Action id="51" name="Custom Action 1 = System.debugOut(&quot;Abnormal Systolic Pressure&quot;)" inEdges="52" outEdge="54"/>
+  <action:Action id="53" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 20" inEdges="54"/>
+  <condition:BoolCond id="55" name="applicationreceived.Person.DiaPressure&lt; applicationreceived.RiskLimits.MinDiaPressure || > applicationreceived.RiskLimits.MaxDiaPressure" inEdges="56" outEdge="58"/>
+  <condition:BoolCond id="57" name="applicationreceived.Person.SysPressure=" inEdges="58" outEdge="60"/>
+  <action:Action id="59" name="Custom Action 1 = System.debugOut(&quot;Abnormall Diastolic Pressure&quot;)" inEdges="60" outEdge="62"/>
+  <action:Action id="61" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 30" inEdges="62"/>
+  <condition:BoolCond id="63" name="applicationreceived.Person.Smoker=&quot;Y&quot;" inEdges="64" outEdge="66"/>
+  <action:Action id="65" name="Custom Action 1 = System.debugOut(&quot;Smoker&quot;)" inEdges="66" outEdge="68"/>
+  <action:Action id="67" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 10" inEdges="68"/>
+  <condition:BoolCond id="69" name="applicationreceived.Person.Liquor=&quot;Y&quot;" inEdges="70" outEdge="72"/>
+  <action:Action id="71" name="Custom Action 1 = System.debugOut(&quot;Drinking Habbit&quot;)" inEdges="72" outEdge="74"/>
+  <action:Action id="73" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 10" inEdges="74"/>
+  <condition:BoolCond id="75" name="applicationreceived.Person.MedicalHistory.LimbDeformity=2" inEdges="76" outEdge="78"/>
+  <action:Action id="77" name="Custom Action 1 = System.debugOut(&quot;Two Limbs Deformed&quot;)" inEdges="78" outEdge="80"/>
+  <action:Action id="79" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 10" inEdges="80"/>
+  <condition:BoolCond id="81" name="applicationreceived.Person.MedicalHistory.LimbDeformity>2" inEdges="82" outEdge="84"/>
+  <action:Action id="83" name="Custom Action 1 = System.debugOut(&quot;More than Two  Limbs Deformed&quot;)" inEdges="84" outEdge="86"/>
+  <action:Action id="85" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 20" inEdges="86"/>
+  <condition:BoolCond id="87" name="applicationreceived.Person.MedicalHistory.OperationsDone>=1" inEdges="88" outEdge="90"/>
+  <condition:BoolCond id="89" name="applicationreceived.Person.MedicalHistory.EarlyDeaths=" inEdges="90" outEdge="92"/>
+  <condition:BoolCond id="91" name="applicationreceived.Person.DiaPressure=" inEdges="92" outEdge="94"/>
+  <condition:BoolCond id="93" name="applicationreceived.Person.SysPressure=" inEdges="94" outEdge="96"/>
+  <condition:BoolCond id="95" name="applicationreceived.Person.Pulse=" inEdges="96" outEdge="98"/>
+  <condition:BoolCond id="97" name="applicationreceived.Person.AbdominalGirth=" inEdges="98" outEdge="100"/>
+  <condition:BoolCond id="99" name="applicationreceived.Person.Chest=" inEdges="100" outEdge="102"/>
+  <condition:BoolCond id="101" name="applicationreceived.Person.Weight=" inEdges="102" outEdge="104"/>
+  <condition:BoolCond id="103" name="applicationreceived.Person.Smoker=" inEdges="104" outEdge="106"/>
+  <condition:BoolCond id="105" name="applicationreceived.Person.Liquor=" inEdges="106" outEdge="108"/>
+  <condition:BoolCond id="107" name="applicationreceived.Person.MedicalHistory.LimbDeformity=" inEdges="108" outEdge="110"/>
+  <action:Action id="109" name="Custom Action 1 = System.debugOut(&quot;Undergone operation for minor diseases&quot;)" inEdges="110" outEdge="112"/>
+  <action:Action id="111" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 20" inEdges="112"/>
+  <condition:BoolCond id="113" name="applicationreceived.Person.MedicalHistory.EarlyDeaths=3" inEdges="114" outEdge="116"/>
+  <action:Action id="115" name="Custom Action 1 = System.debugOut(&quot;3 Premature deaths in the family due to diseases&quot;)" inEdges="116" outEdge="118"/>
+  <action:Action id="117" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 10" inEdges="118"/>
+  <condition:BoolCond id="119" name="applicationreceived.Person.MedicalHistory.EarlyDeaths>3" inEdges="120" outEdge="122"/>
+  <action:Action id="121" name="Custom Action 1 = System.debugOut(&quot;More than 3 Premature deaths in the family due to diseases&quot;)" inEdges="122" outEdge="124"/>
+  <action:Action id="123" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 20" inEdges="124"/>
+  <condition:BoolCond id="125" name="applicationreceived.Person.Chest> applicationreceived.RiskLimits.IdealChestExpansion" inEdges="126" outEdge="128"/>
+  <condition:BoolCond id="127" name="applicationreceived.Person.AbdominalGirth=" inEdges="128" outEdge="130"/>
+  <condition:BoolCond id="129" name="applicationreceived.Person.Pulse=" inEdges="130" outEdge="132"/>
+  <condition:BoolCond id="131" name="applicationreceived.Person.SysPressure=" inEdges="132" outEdge="134"/>
+  <condition:BoolCond id="133" name="applicationreceived.Person.DiaPressure=" inEdges="134" outEdge="136"/>
+  <condition:BoolCond id="135" name="applicationreceived.Person.Smoker=" inEdges="136" outEdge="138"/>
+  <condition:BoolCond id="137" name="applicationreceived.Person.Liquor=" inEdges="138" outEdge="140"/>
+  <condition:BoolCond id="139" name="applicationreceived.Person.MedicalHistory.LimbDeformity=" inEdges="140" outEdge="142"/>
+  <condition:BoolCond id="141" name="applicationreceived.Person.MedicalHistory.OperationsDone=" inEdges="142" outEdge="144"/>
+  <condition:BoolCond id="143" name="applicationreceived.Person.MedicalHistory.EarlyDeaths=" inEdges="144" outEdge="146"/>
+  <action:Action id="145" name="Custom Action 1 = System.debugOut(&quot;Chest Expansion better than ideal&quot;)" inEdges="146" outEdge="148"/>
+  <action:Action id="147" name="applicationreceived.AdverseFactor = applicationreceived.FavourableFactor + 10" inEdges="148"/>
+  <condition:BoolCond id="149" name="applicationreceived.Person.AbdominalGirth&lt; applicationreceived.RiskLimits.StandardAbdomonalGirth" inEdges="150" outEdge="152"/>
+  <condition:BoolCond id="151" name="applicationreceived.Person.Pulse=" inEdges="152" outEdge="154"/>
+  <condition:BoolCond id="153" name="applicationreceived.Person.SysPressure=" inEdges="154" outEdge="156"/>
+  <condition:BoolCond id="155" name="applicationreceived.Person.DiaPressure=" inEdges="156" outEdge="158"/>
+  <condition:BoolCond id="157" name="applicationreceived.Person.Smoker=" inEdges="158" outEdge="160"/>
+  <condition:BoolCond id="159" name="applicationreceived.Person.Liquor=" inEdges="160" outEdge="162"/>
+  <condition:BoolCond id="161" name="applicationreceived.Person.MedicalHistory.LimbDeformity=" inEdges="162" outEdge="164"/>
+  <condition:BoolCond id="163" name="applicationreceived.Person.MedicalHistory.OperationsDone=" inEdges="164" outEdge="166"/>
+  <condition:BoolCond id="165" name="applicationreceived.Person.MedicalHistory.EarlyDeaths=" inEdges="166" outEdge="168"/>
+  <action:Action id="167" name="Custom Action 1 = System.debugOut(&quot;Abdonimal Girth Better than ideal&quot;)" inEdges="168" outEdge="170"/>
+  <action:Action id="169" name="applicationreceived.AdverseFactor = applicationreceived.FavourableFactor + 10" inEdges="170"/>
+  <condition:BoolCond id="171" name="applicationreceived.Person.MedicalHistory.ExtendedLives=2" inEdges="172" outEdge="174"/>
+  <action:Action id="173" name="Custom Action 1 = System.debugOut(&quot;Good Extended Life Ratio in the Family&quot;)" inEdges="174" outEdge="176"/>
+  <action:Action id="175" name="applicationreceived.AdverseFactor = applicationreceived.FavourableFactor + 5" inEdges="176"/>
+  <condition:BoolCond id="177" name="applicationreceived.Person.MedicalHistory.ExtendedLives>2" inEdges="178" outEdge="180"/>
+  <action:Action id="179" name="Custom Action 1 = System.debugOut(&quot;Excellent Extended Life Ratio in the Family&quot;)" inEdges="180" outEdge="182"/>
+  <action:Action id="181" name="applicationreceived.AdverseFactor = applicationreceived.AdverseFactor + 10" inEdges="182"/>
+  <edge:Edge id="2" name="yes" src="/1" tgt="1"/>
+  <edge:Edge id="4" name="yes" src="1" tgt="3"/>
+  <edge:Edge id="6" name="yes" src="3" tgt="5"/>
+  <edge:Edge id="8" name="yes" src="5" tgt="7"/>
+  <edge:Edge id="10" name="no" src="1" tgt="9"/>
+  <edge:Edge id="12" name="yes" src="9" tgt="11"/>
+  <edge:Edge id="14" name="yes" src="11" tgt="13"/>
+  <edge:Edge id="16" name="no" src="9" tgt="15"/>
+  <edge:Edge id="18" name="yes" src="15" tgt="17"/>
+  <edge:Edge id="20" name="yes" src="17" tgt="19"/>
+  <edge:Edge id="22" name="no" src="15" tgt="21"/>
+  <edge:Edge id="24" name="yes" src="21" tgt="23"/>
+  <edge:Edge id="26" name="yes" src="23" tgt="25"/>
+  <edge:Edge id="28" name="no" src="23" tgt="27"/>
+  <edge:Edge id="30" name="yes" src="27" tgt="29"/>
+  <edge:Edge id="32" name="yes" src="29" tgt="31"/>
+  <edge:Edge id="34" name="yes" src="31" tgt="33"/>
+  <edge:Edge id="36" name="no" src="23" tgt="35"/>
+  <edge:Edge id="38" name="yes" src="35" tgt="37"/>
+  <edge:Edge id="40" name="yes" src="37" tgt="39"/>
+  <edge:Edge id="42" name="yes" src="39" tgt="41"/>
+  <edge:Edge id="44" name="no" src="23" tgt="43"/>
+  <edge:Edge id="46" name="yes" src="43" tgt="45"/>
+  <edge:Edge id="48" name="yes" src="45" tgt="47"/>
+  <edge:Edge id="50" name="no" src="23" tgt="49"/>
+  <edge:Edge id="52" name="yes" src="49" tgt="51"/>
+  <edge:Edge id="54" name="yes" src="51" tgt="53"/>
+  <edge:Edge id="56" name="no" src="23" tgt="55"/>
+  <edge:Edge id="58" name="yes" src="55" tgt="57"/>
+  <edge:Edge id="60" name="yes" src="57" tgt="59"/>
+  <edge:Edge id="62" name="yes" src="59" tgt="61"/>
+  <edge:Edge id="64" name="no" src="23" tgt="63"/>
+  <edge:Edge id="66" name="yes" src="63" tgt="65"/>
+  <edge:Edge id="68" name="yes" src="65" tgt="67"/>
+  <edge:Edge id="70" name="no" src="23" tgt="69"/>
+  <edge:Edge id="72" name="yes" src="69" tgt="71"/>
+  <edge:Edge id="74" name="yes" src="71" tgt="73"/>
+  <edge:Edge id="76" name="no" src="23" tgt="75"/>
+  <edge:Edge id="78" name="yes" src="75" tgt="77"/>
+  <edge:Edge id="80" name="yes" src="77" tgt="79"/>
+  <edge:Edge id="82" name="no" src="23" tgt="81"/>
+  <edge:Edge id="84" name="yes" src="81" tgt="83"/>
+  <edge:Edge id="86" name="yes" src="83" tgt="85"/>
+  <edge:Edge id="88" name="no" src="23" tgt="87"/>
+  <edge:Edge id="90" name="yes" src="87" tgt="89"/>
+  <edge:Edge id="92" name="yes" src="89" tgt="91"/>
+  <edge:Edge id="94" name="yes" src="91" tgt="93"/>
+  <edge:Edge id="96" name="yes" src="93" tgt="95"/>
+  <edge:Edge id="98" name="yes" src="95" tgt="97"/>
+  <edge:Edge id="100" name="yes" src="97" tgt="99"/>
+  <edge:Edge id="102" name="yes" src="99" tgt="101"/>
+  <edge:Edge id="104" name="yes" src="101" tgt="103"/>
+  <edge:Edge id="106" name="yes" src="103" tgt="105"/>
+  <edge:Edge id="108" name="yes" src="105" tgt="107"/>
+  <edge:Edge id="110" name="yes" src="107" tgt="109"/>
+  <edge:Edge id="112" name="yes" src="109" tgt="111"/>
+  <edge:Edge id="114" name="no" src="23" tgt="113"/>
+  <edge:Edge id="116" name="yes" src="113" tgt="115"/>
+  <edge:Edge id="118" name="yes" src="115" tgt="117"/>
+  <edge:Edge id="120" name="no" src="23" tgt="119"/>
+  <edge:Edge id="122" name="yes" src="119" tgt="121"/>
+  <edge:Edge id="124" name="yes" src="121" tgt="123"/>
+  <edge:Edge id="126" name="no" src="23" tgt="125"/>
+  <edge:Edge id="128" name="yes" src="125" tgt="127"/>
+  <edge:Edge id="130" name="yes" src="127" tgt="129"/>
+  <edge:Edge id="132" name="yes" src="129" tgt="131"/>
+  <edge:Edge id="134" name="yes" src="131" tgt="133"/>
+  <edge:Edge id="136" name="yes" src="133" tgt="135"/>
+  <edge:Edge id="138" name="yes" src="135" tgt="137"/>
+  <edge:Edge id="140" name="yes" src="137" tgt="139"/>
+  <edge:Edge id="142" name="yes" src="139" tgt="141"/>
+  <edge:Edge id="144" name="yes" src="141" tgt="143"/>
+  <edge:Edge id="146" name="yes" src="143" tgt="145"/>
+  <edge:Edge id="148" name="yes" src="145" tgt="147"/>
+  <edge:Edge id="150" name="no" src="23" tgt="149"/>
+  <edge:Edge id="152" name="yes" src="149" tgt="151"/>
+  <edge:Edge id="154" name="yes" src="151" tgt="153"/>
+  <edge:Edge id="156" name="yes" src="153" tgt="155"/>
+  <edge:Edge id="158" name="yes" src="155" tgt="157"/>
+  <edge:Edge id="160" name="yes" src="157" tgt="159"/>
+  <edge:Edge id="162" name="yes" src="159" tgt="161"/>
+  <edge:Edge id="164" name="yes" src="161" tgt="163"/>
+  <edge:Edge id="166" name="yes" src="163" tgt="165"/>
+  <edge:Edge id="168" name="yes" src="165" tgt="167"/>
+  <edge:Edge id="170" name="yes" src="167" tgt="169"/>
+  <edge:Edge id="172" name="no" src="23" tgt="171"/>
+  <edge:Edge id="174" name="yes" src="171" tgt="173"/>
+  <edge:Edge id="176" name="yes" src="173" tgt="175"/>
+  <edge:Edge id="178" name="no" src="23" tgt="177"/>
+  <edge:Edge id="180" name="yes" src="177" tgt="179"/>
+  <edge:Edge id="182" name="yes" src="179" tgt="181"/>
+</xmi:XMI>

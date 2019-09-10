@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><element:Concept xmlns:element="http:///com/tibco/cep/designtime/core/model/element" xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.0" namespace="/Concepts/" folder="/Concepts/" name="MedicalHistory" description="Medical History of the Applicant" GUID="AE193B75-20C5-39AB-0DBC-1CAF147D7A60" ownerProjectName="InsuranceRiskRating" superConceptPath="" autoStartStateMachine="true">
+  <extendedProperties/>
+  <properties name="LimbDeformity" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/MedicalHistory"/>
+  <properties name="OperationsDone" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/MedicalHistory"/>
+  <properties name="EarlyDeaths" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/MedicalHistory"/>
+  <properties name="ExtendedLives" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/MedicalHistory"/>
+</element:Concept>

@@ -1,0 +1,16 @@
+/**
+ * @description Virtual Rule Function for Calculating Mortality Rate through DT
+ */
+virtual void rulefunction Virtual_RuleFunctions.CalculateMoratlityRate {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		Events.CalculateRiskRating calculateriskrating;
+		Concepts.Application applicationreceived;
+		Concepts.RiskLimits riskLimits;
+	}
+	body {
+		
+	}
+}

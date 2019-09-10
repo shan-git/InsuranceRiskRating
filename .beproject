@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration:StudioProjectConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:configuration="http:///com/tibco/cep/studio/common/configuration/model/project_configuration.ecore" name="InsuranceRiskRating" version="5.5.0" build="205">
+  <enterpriseArchiveConfiguration name="InsuranceRiskRating" author="788843" version="41" path="C:\Users\UI656929\InsuranceRiskRating.ear" overwrite="true"/>
+  <bpmnProcessSettings/>
+</configuration:StudioProjectConfiguration>

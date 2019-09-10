@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><element:Concept xmlns:element="http:///com/tibco/cep/designtime/core/model/element" xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.0" namespace="/Concepts/" folder="/Concepts/" name="Application" description="Parent Concept for Insurance Application" GUID="33E2635E-C6BF-D60D-7409-C59D8823AA25" ownerProjectName="InsuranceRiskRating" superConceptPath="" autoStartStateMachine="true">
+  <extendedProperties/>
+  <properties name="ApplicationId" ownerProjectName="InsuranceRiskRating" ownerPath="/Concepts/Application"/>
+  <properties name="Person" ownerProjectName="InsuranceRiskRating" type="ContainedConcept" conceptTypePath="/Concepts/Person" ownerPath="/Concepts/Application"/>
+  <properties name="AdverseFactor" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/Application"/>
+  <properties name="FavourableFactor" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/Application"/>
+  <properties name="NetRiskRating" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/Application"/>
+</element:Concept>

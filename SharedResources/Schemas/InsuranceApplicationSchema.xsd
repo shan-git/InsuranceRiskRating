@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tcs.com/dess/casestudy/MortalityRiskRatingClient/SharedResources/Schemas/InsuranceApplicationSchema.xsd"
+	 targetNamespace="http://www.tcs.com/dess/casestudy/MortalityRiskRatingClient/SharedResources/Schemas/InsuranceApplicationSchema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="CalculateRiskRatingInput">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ApplicationId"/>
+				<xs:element ref="Person"/>
+				<xs:element ref="History"/>
+				<xs:element ref="Habbits"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalculateRiskRatingOutput">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ApplicationId"/>
+				<xs:element ref="MortalityRiskRating"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Person">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Name"/>
+				<xs:element ref="Age"/>
+				<xs:element ref="Sex"/>
+				<xs:element ref="Height"/>
+				<xs:element ref="Weight"/>
+				<xs:element ref="Chest"/>
+				<xs:element ref="AbdominalGirth"/>
+				<xs:element ref="Pulse"/>
+				<xs:element ref="SysPressure"/>
+				<xs:element ref="DiaPressure"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="History">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="PersonalHistory">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="LimbDeformity" type="xs:int"/>
+							<xs:element name="OperationsDone" type="xs:int"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="FamilyHistory">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="EarlyDeaths" type="xs:int"/>
+							<xs:element name="ExtendedLives" type="xs:int"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Habbits">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Smoker" type="xs:string"/>
+				<xs:element name="Liquor" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Name" type="xs:string"/>
+	<xs:element name="Age" type="xs:int"/>
+	<xs:element name="Sex" type="xs:string"/>
+	<xs:element name="Height" type="xs:double"/>
+	<xs:element name="Weight" type="xs:double"/>
+	<xs:element name="Chest" type="xs:double"/>
+	<xs:element name="AbdominalGirth" type="xs:double"/>
+	<xs:element name="Pulse" type="xs:int"/>
+	<xs:element name="SysPressure" type="xs:int"/>
+	<xs:element name="DiaPressure" type="xs:int"/>
+	<xs:element name="MortalityRiskRating" type="xs:int"/>
+	<xs:element name="ApplicationId" type="xs:string"/>
+</xs:schema>

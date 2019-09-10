@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testdata><ns0:CalculateriskRating xmlns:ns0="www.tibco.com/be/ontology/Events/CalculateriskRating" isSelected="true" extId="test"><payload><CalculateRiskRatingInput xmlns="http://www.tcs.com/dess/casestudy/MortalityRiskRatingClient/SharedResources/Schemas/InsuranceApplicationSchema.xsd">
+	<ApplicationId>ORD240420150001</ApplicationId>
+	<Person>
+		<Name>Shankar</Name>
+		<Age>34</Age>
+		<Sex>M</Sex>
+		<Height>172</Height>
+		<Weight>80</Weight>
+		<Chest>42</Chest>
+		<AbdominalGirth>5</AbdominalGirth>
+		<Pulse>84</Pulse>
+		<SysPressure>90</SysPressure>
+		<DiaPressure>140</DiaPressure>
+	</Person>
+	<History>
+		<PersonalHistory>
+			<LimbDeformity>0</LimbDeformity>
+			<OperationsDone>0</OperationsDone>
+		</PersonalHistory>
+		<FamilyHistory>
+			<EarlyDeaths>0</EarlyDeaths>
+			<ExtendedLives>0</ExtendedLives>
+		</FamilyHistory>
+	</History>
+	<Habbits>
+		<Smoker>Y</Smoker>
+		<Liquor>Y</Liquor>
+	</Habbits>
+	<RiskLimits>
+		<StandardWeight>75</StandardWeight>
+		<AllowedWeightDeviation>10</AllowedWeightDeviation>
+		<MinChestExpansion>38</MinChestExpansion>
+		<IdealChestExpansion>42</IdealChestExpansion>
+		<MaxAbdonimalGirth>7</MaxAbdonimalGirth>
+		<StandardAbdominalGirth>5</StandardAbdominalGirth>
+		<MinPulseRate>70</MinPulseRate>
+		<MaxPulseRate>100</MaxPulseRate>
+		<MinSysPressure>70</MinSysPressure>
+		<MaxSysPressure>100</MaxSysPressure>
+		<MinDiaPressure>120</MinDiaPressure>
+		<MaxDiaPressure>140</MaxDiaPressure>
+	</RiskLimits>
+</CalculateRiskRatingInput></payload></ns0:CalculateriskRating></testdata>

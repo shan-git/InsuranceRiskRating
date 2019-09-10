@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><element:Concept xmlns:element="http:///com/tibco/cep/designtime/core/model/element" xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.0" namespace="/Concepts/" folder="/Concepts/" name="RiskLimits" description="Standard &amp; Permissible Values for different Health Factors" GUID="7EF0E2E0-71C8-25D6-AF74-DCEAF554D815" ownerProjectName="InsuranceRiskRating" superConceptPath="" autoStartStateMachine="true">
+  <extendedProperties/>
+  <properties name="StandardWeight" ownerProjectName="InsuranceRiskRating" type="double" ownerPath="/Concepts/RiskLimits"/>
+  <properties name="AllowedWeightDeviation" ownerProjectName="InsuranceRiskRating" type="double" ownerPath="/Concepts/RiskLimits"/>
+  <properties name="MinChestExpansion" ownerProjectName="InsuranceRiskRating" type="double" ownerPath="/Concepts/RiskLimits"/>
+  <properties name="IdealChestExpansion" ownerProjectName="InsuranceRiskRating" type="double" ownerPath="/Concepts/RiskLimits"/>
+  <properties name="MaxAbdominalGirth" ownerProjectName="InsuranceRiskRating" type="double" ownerPath="/Concepts/RiskLimits"/>
+  <properties name="StandardAbdomonalGirth" ownerProjectName="InsuranceRiskRating" type="double" ownerPath="/Concepts/RiskLimits"/>
+  <properties name="MinPulseRate" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/RiskLimits"/>
+  <properties name="MaxPulseRate" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/RiskLimits"/>
+  <properties name="MinSysPressure" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/RiskLimits"/>
+  <properties name="MaxSysPressure" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/RiskLimits"/>
+  <properties name="MinDiaPressure" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/RiskLimits"/>
+  <properties name="MaxDiaPressure" ownerProjectName="InsuranceRiskRating" type="double" ownerPath="/Concepts/RiskLimits"/>
+</element:Concept>

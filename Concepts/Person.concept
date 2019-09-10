@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><element:Concept xmlns:element="http:///com/tibco/cep/designtime/core/model/element" xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.0" namespace="/Concepts/" folder="/Concepts/" name="Person" description="Person Concept" GUID="922B4CCA-4677-5AF4-06EE-38D3A464E8A6" ownerProjectName="InsuranceRiskRating" superConceptPath="" autoStartStateMachine="true">
+  <extendedProperties/>
+  <properties name="Name" ownerProjectName="InsuranceRiskRating" ownerPath="/Concepts/Person"/>
+  <properties name="Age" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/Person"/>
+  <properties name="Sex" ownerProjectName="InsuranceRiskRating" ownerPath="/Concepts/Person"/>
+  <properties name="Height" ownerProjectName="InsuranceRiskRating" type="double" ownerPath="/Concepts/Person"/>
+  <properties name="Weight" ownerProjectName="InsuranceRiskRating" type="double" ownerPath="/Concepts/Person"/>
+  <properties name="Chest" ownerProjectName="InsuranceRiskRating" type="double" ownerPath="/Concepts/Person"/>
+  <properties name="AbdominalGirth" ownerProjectName="InsuranceRiskRating" type="double" ownerPath="/Concepts/Person"/>
+  <properties name="Pulse" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/Person"/>
+  <properties name="SysPressure" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/Person"/>
+  <properties name="DiaPressure" ownerProjectName="InsuranceRiskRating" type="int" ownerPath="/Concepts/Person"/>
+  <properties name="Smoker" ownerProjectName="InsuranceRiskRating" ownerPath="/Concepts/Person"/>
+  <properties name="Liquor" ownerProjectName="InsuranceRiskRating" ownerPath="/Concepts/Person"/>
+  <properties name="MedicalHistory" ownerProjectName="InsuranceRiskRating" type="ContainedConcept" conceptTypePath="/Concepts/MedicalHistory" ownerPath="/Concepts/Person"/>
+</element:Concept>

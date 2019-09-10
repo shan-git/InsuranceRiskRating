@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Table:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Table="http:///com/tibco/cep/decision/table/model/DecisionTable.ecore" name="MortalityCalculator" folder="/Virtual_RuleFunctions/" implements="/Virtual_RuleFunctions/CalculateMoratlityRate" since="BE 4.0">
+  <md>
+    <prop name="EffectiveDate" type="DateTime" value=""/>
+    <prop name="ExpiryDate" type="DateTime" value=""/>
+    <prop name="SingleRowExecution" type="Boolean" value="false"/>
+  </md>
+  <decisionTable>
+    <rule id="1">
+      <cond id="1_1" colId="1" expr="> riskLimits.StandardWeight &amp;&amp; &lt; (riskLimits.StandardWeight + riskLimits.AllowedWeightDeviation )" displayValue="> riskLimits.StandardWeight &amp;&amp; &lt; (riskLimits.StandardWeight + riskLimits.AllowedWeightDeviation )"/>
+      <cond id="1_5" colId="5" expr=""/>
+      <cond id="1_6" colId="6" expr=""/>
+      <cond id="1_7" colId="7" expr=""/>
+      <cond id="1_8" colId="8" expr=""/>
+      <cond id="1_9" colId="9" expr=""/>
+      <cond id="1_10" colId="10" expr=""/>
+      <cond id="1_11" colId="11" expr=""/>
+      <cond id="1_12" colId="12" expr=""/>
+      <cond id="1_13" colId="13" expr=""/>
+      <cond id="1_14" colId="14" expr=""/>
+      <cond id="1_15" colId="15" expr=""/>
+      <act id="1_3" colId="3" expr="System.debugOut(&quot;- Marginal OverWeight&quot;)" displayValue="System.debugOut(&quot;- Marginal OverWeight&quot;)"/>
+      <act id="1_2" colId="2" expr="applicationreceived.AdverseFactor + 10" displayValue="applicationreceived.AdverseFactor + 10"/>
+    </rule>
+    <rule id="2">
+      <cond id="2_1" colId="1" expr="> (riskLimits.StandardWeight + riskLimits.AllowedWeightDeviation ) &amp;&amp; &lt; (riskLimits.StandardWeight + 2 * riskLimits.AllowedWeightDeviation )" displayValue="> (riskLimits.StandardWeight + riskLimits.AllowedWeightDeviation ) &amp;&amp; &lt; (riskLimits.StandardWeight + 2 * riskLimits.AllowedWeightDeviation )"/>
+      <cond id="2_5" colId="5" expr=""/>
+      <cond id="2_6" colId="6" expr=""/>
+      <cond id="2_7" colId="7" expr=""/>
+      <cond id="2_8" colId="8" expr=""/>
+      <cond id="2_9" colId="9" expr=""/>
+      <cond id="2_10" colId="10" expr=""/>
+      <cond id="2_11" colId="11" expr=""/>
+      <cond id="2_12" colId="12" expr=""/>
+      <cond id="2_13" colId="13" expr=""/>
+      <cond id="2_14" colId="14" expr=""/>
+      <cond id="2_15" colId="15" expr=""/>
+      <act id="2_3" colId="3" expr="System.debugOut(&quot;- OverWeight&quot;)" displayValue="System.debugOut(&quot;- OverWeight&quot;)"/>
+      <act id="2_2" colId="2" expr="applicationreceived.AdverseFactor + 20" displayValue="applicationreceived.AdverseFactor + 20"/>
+    </rule>
+    <rule id="3">
+      <cond id="3_1" colId="1" expr="> (riskLimits.StandardWeight - riskLimits.AllowedWeightDeviation ) &amp;&amp; &lt; riskLimits.StandardWeight" displayValue="> (riskLimits.StandardWeight - riskLimits.AllowedWeightDeviation ) &amp;&amp; &lt; riskLimits.StandardWeight"/>
+      <act id="3_3" colId="3" expr="System.debugOut(&quot;- Marginal UnderWeight&quot;)" displayValue="System.debugOut(&quot;- Marginal UnderWeight&quot;)"/>
+      <act id="3_2" colId="2" expr="applicationreceived.AdverseFactor + 20" displayValue="applicationreceived.AdverseFactor + 20"/>
+    </rule>
+    <rule id="4">
+      <cond id="4_1" colId="1" expr="&lt; (riskLimits.StandardWeight - riskLimits.AllowedWeightDeviation ) &amp;&amp; > (riskLimits.StandardWeight - 2 * riskLimits.AllowedWeightDeviation )" displayValue="&lt; (riskLimits.StandardWeight - riskLimits.AllowedWeightDeviation ) &amp;&amp; > (riskLimits.StandardWeight - 2 * riskLimits.AllowedWeightDeviation )"/>
+      <act id="4_3" colId="3" expr="System.debugOut(&quot;- UnderWeight&quot;)" displayValue="System.debugOut(&quot;- UnderWeight&quot;)"/>
+      <act id="4_2" colId="2" expr="applicationreceived.AdverseFactor + 30" displayValue="applicationreceived.AdverseFactor + 30"/>
+    </rule>
+    <rule id="5">
+      <cond id="5_5" colId="5" expr="&lt; riskLimits.MinChestExpansion" displayValue="&lt; riskLimits.MinChestExpansion"/>
+      <cond id="5_12" colId="12" expr=""/>
+      <act id="5_3" colId="3" expr="System.debugOut(&quot;- Chest Expansion not ideal&quot;)" displayValue="System.debugOut(&quot;- Chest Expansion not ideal&quot;)"/>
+      <act id="5_2" colId="2" expr="applicationreceived.AdverseFactor + 10" displayValue="applicationreceived.AdverseFactor + 10"/>
+    </rule>
+    <rule id="6">
+      <cond id="6_6" colId="6" expr="> riskLimits.MaxAbdominalGirth" displayValue="> riskLimits.MaxAbdominalGirth"/>
+      <cond id="6_12" colId="12" expr=""/>
+      <act id="6_3" colId="3" expr="System.debugOut(&quot;- Abdominal Girth Problem&quot;)" displayValue="System.debugOut(&quot;- Abdominal Girth Problem&quot;)"/>
+      <act id="6_2" colId="2" expr="applicationreceived.AdverseFactor + 20" displayValue="applicationreceived.AdverseFactor + 20"/>
+    </rule>
+    <rule id="7">
+      <cond id="7_7" colId="7" expr="&lt; riskLimits.MinPulseRate || > riskLimits.MaxPulseRate" displayValue="&lt; riskLimits.MinPulseRate || > riskLimits.MaxPulseRate"/>
+      <act id="7_3" colId="3" expr="System.debugOut(&quot;- Abnormal Pulse Rate&quot;)" displayValue="System.debugOut(&quot;- Abnormal Pulse Rate&quot;)"/>
+      <act id="7_2" colId="2" expr="applicationreceived.AdverseFactor + 20" displayValue="applicationreceived.AdverseFactor + 20"/>
+    </rule>
+    <rule id="8">
+      <cond id="8_8" colId="8" expr="&lt; riskLimits.MinSysPressure || > riskLimits.MaxSysPressure" displayValue="&lt; riskLimits.MinSysPressure || > riskLimits.MaxSysPressure"/>
+      <act id="8_3" colId="3" expr="System.debugOut(&quot;- Abnormal Systolic Pressure&quot;)" displayValue="System.debugOut(&quot;- Abnormal Systolic Pressure&quot;)"/>
+      <act id="8_2" colId="2" expr="applicationreceived.AdverseFactor + 20" displayValue="applicationreceived.AdverseFactor + 20"/>
+    </rule>
+    <rule id="9">
+      <cond id="9_9" colId="9" expr="&lt; riskLimits.MinDiaPressure || > riskLimits.MaxDiaPressure" displayValue="&lt; riskLimits.MinDiaPressure || > riskLimits.MaxDiaPressure"/>
+      <cond id="9_8" colId="8" expr=""/>
+      <act id="9_3" colId="3" expr="System.debugOut(&quot;- Abnormall Diastolic Pressure&quot;)" displayValue="System.debugOut(&quot;- Abnormall Diastolic Pressure&quot;)"/>
+      <act id="9_2" colId="2" expr="applicationreceived.AdverseFactor + 30" displayValue="applicationreceived.AdverseFactor + 30"/>
+    </rule>
+    <rule id="10">
+      <cond id="10_10" colId="10" expr="&quot;Y&quot;" displayValue="&quot;Y&quot;"/>
+      <act id="10_3" colId="3" expr="System.debugOut(&quot;- Smoker&quot;)" displayValue="System.debugOut(&quot;- Smoker&quot;)"/>
+      <act id="10_2" colId="2" expr="applicationreceived.AdverseFactor + 10" displayValue="applicationreceived.AdverseFactor + 10"/>
+    </rule>
+    <rule id="11">
+      <cond id="11_11" colId="11" expr="&quot;Y&quot;" displayValue="&quot;Y&quot;"/>
+      <act id="11_3" colId="3" expr="System.debugOut(&quot;- Drinking Habbit&quot;)" displayValue="System.debugOut(&quot;- Drinking Habbit&quot;)"/>
+      <act id="11_2" colId="2" expr="applicationreceived.AdverseFactor + 10" displayValue="applicationreceived.AdverseFactor + 10"/>
+    </rule>
+    <rule id="12">
+      <cond id="12_12" colId="12" expr="=2" displayValue="=2"/>
+      <act id="12_3" colId="3" expr="System.debugOut(&quot;- Two Limbs Deformed&quot;)" displayValue="System.debugOut(&quot;- Two Limbs Deformed&quot;)"/>
+      <act id="12_2" colId="2" expr="applicationreceived.AdverseFactor + 10" displayValue="applicationreceived.AdverseFactor + 10"/>
+    </rule>
+    <rule id="13">
+      <cond id="13_12" colId="12" expr=">2" displayValue=">2"/>
+      <act id="13_3" colId="3" expr="System.debugOut(&quot;- More than Two  Limbs Deformed&quot;)" displayValue="System.debugOut(&quot;- More than Two  Limbs Deformed&quot;)"/>
+      <act id="13_2" colId="2" expr="applicationreceived.AdverseFactor + 20" displayValue="applicationreceived.AdverseFactor + 20"/>
+    </rule>
+    <rule id="14">
+      <cond id="14_13" colId="13" expr=">=1" displayValue=">=1"/>
+      <cond id="14_14" colId="14" expr=""/>
+      <cond id="14_9" colId="9" expr=""/>
+      <cond id="14_8" colId="8" expr=""/>
+      <cond id="14_7" colId="7" expr=""/>
+      <cond id="14_6" colId="6" expr=""/>
+      <cond id="14_5" colId="5" expr=""/>
+      <cond id="14_1" colId="1" expr=""/>
+      <cond id="14_10" colId="10" expr=""/>
+      <cond id="14_11" colId="11" expr=""/>
+      <cond id="14_12" colId="12" expr=""/>
+      <cond id="14_15" colId="15" expr=""/>
+      <act id="14_3" colId="3" expr="System.debugOut(&quot;- Undergone operation for minor diseases&quot;)" displayValue="System.debugOut(&quot;- Undergone operation for minor diseases&quot;)"/>
+      <act id="14_2" colId="2" expr="applicationreceived.AdverseFactor + 20" displayValue="applicationreceived.AdverseFactor + 20"/>
+    </rule>
+    <rule id="15">
+      <cond id="15_14" colId="14" expr="=3" displayValue="=3"/>
+      <act id="15_3" colId="3" expr="System.debugOut(&quot;- 3 Premature deaths in the family due to diseases&quot;)" displayValue="System.debugOut(&quot;- 3 Premature deaths in the family due to diseases&quot;)"/>
+      <act id="15_2" colId="2" expr="applicationreceived.AdverseFactor + 10" displayValue="applicationreceived.AdverseFactor + 10"/>
+    </rule>
+    <rule id="16">
+      <cond id="16_14" colId="14" expr=">3" displayValue=">3"/>
+      <act id="16_3" colId="3" expr="System.debugOut(&quot;- More than 3 Premature deaths in the family due to diseases&quot;)" displayValue="System.debugOut(&quot;- More than 3 Premature deaths in the family due to diseases&quot;)"/>
+      <act id="16_2" colId="2" expr="applicationreceived.AdverseFactor + 20" displayValue="applicationreceived.AdverseFactor + 20"/>
+    </rule>
+    <rule id="17">
+      <cond id="17_5" colId="5" expr="> riskLimits.IdealChestExpansion" displayValue="> riskLimits.IdealChestExpansion"/>
+      <cond id="17_6" colId="6" expr=""/>
+      <cond id="17_7" colId="7" expr=""/>
+      <cond id="17_8" colId="8" expr=""/>
+      <cond id="17_9" colId="9" expr=""/>
+      <cond id="17_10" colId="10" expr=""/>
+      <cond id="17_11" colId="11" expr=""/>
+      <cond id="17_12" colId="12" expr=""/>
+      <cond id="17_13" colId="13" expr=""/>
+      <cond id="17_14" colId="14" expr=""/>
+      <act id="17_3" colId="3" expr="System.debugOut(&quot;- Chest Expansion better than ideal&quot;)" displayValue="System.debugOut(&quot;- Chest Expansion better than ideal&quot;)"/>
+      <act id="17_2" colId="2" expr=""/>
+      <act id="17_16" colId="16" expr="applicationreceived.FavourableFactor + 10" displayValue="applicationreceived.FavourableFactor + 10"/>
+    </rule>
+    <rule id="18">
+      <cond id="18_6" colId="6" expr="&lt; riskLimits.StandardAbdomonalGirth" displayValue="&lt; riskLimits.StandardAbdomonalGirth"/>
+      <cond id="18_7" colId="7" expr=""/>
+      <cond id="18_8" colId="8" expr=""/>
+      <cond id="18_9" colId="9" expr=""/>
+      <cond id="18_10" colId="10" expr=""/>
+      <cond id="18_11" colId="11" expr=""/>
+      <cond id="18_12" colId="12" expr=""/>
+      <cond id="18_13" colId="13" expr=""/>
+      <cond id="18_14" colId="14" expr=""/>
+      <act id="18_3" colId="3" expr="System.debugOut(&quot;- Abdonimal Girth Better than ideal&quot;)" displayValue="System.debugOut(&quot;- Abdonimal Girth Better than ideal&quot;)"/>
+      <act id="18_2" colId="2" expr=""/>
+      <act id="18_16" colId="16" expr="applicationreceived.FavourableFactor + 10" displayValue="applicationreceived.FavourableFactor + 10"/>
+    </rule>
+    <rule id="19">
+      <cond id="19_15" colId="15" expr="=2" displayValue="=2"/>
+      <act id="19_3" colId="3" expr="System.debugOut(&quot;Good Extended Life Ratio in the Family&quot;)" displayValue="System.debugOut(&quot;Good Extended Life Ratio in the Family&quot;)"/>
+      <act id="19_2" colId="2" expr=""/>
+      <act id="19_16" colId="16" expr="applicationreceived.FavourableFactor + 5" displayValue="applicationreceived.FavourableFactor + 5"/>
+    </rule>
+    <rule id="20">
+      <cond id="20_15" colId="15" expr=">2" displayValue=">2"/>
+      <act id="20_3" colId="3" expr="System.debugOut(&quot;Excellent Extended Life Ratio in the Family&quot;)" displayValue="System.debugOut(&quot;Excellent Extended Life Ratio in the Family&quot;)"/>
+      <act id="20_2" colId="2" expr=""/>
+      <act id="20_16" colId="16" expr="applicationreceived.FavourableFactor + 10" displayValue="applicationreceived.FavourableFactor + 10"/>
+    </rule>
+    <columns>
+      <column id="1" name="applicationreceived.Person.Weight" propertyPath="/Concepts/Person/Weight" propertyType="3" columnType="CONDITION"/>
+      <column id="5" name="applicationreceived.Person.Chest" propertyPath="/Concepts/Person/Chest" propertyType="3" columnType="CONDITION"/>
+      <column id="6" name="applicationreceived.Person.AbdominalGirth" propertyPath="/Concepts/Person/AbdominalGirth" propertyType="3" columnType="CONDITION"/>
+      <column id="7" name="applicationreceived.Person.Pulse" propertyPath="/Concepts/Person/Pulse" propertyType="1" columnType="CONDITION"/>
+      <column id="8" name="applicationreceived.Person.SysPressure" propertyPath="/Concepts/Person/SysPressure" propertyType="1" columnType="CONDITION"/>
+      <column id="9" name="applicationreceived.Person.DiaPressure" propertyPath="/Concepts/Person/DiaPressure" propertyType="1" columnType="CONDITION"/>
+      <column id="10" name="applicationreceived.Person.Smoker" propertyPath="/Concepts/Person/Smoker" columnType="CONDITION"/>
+      <column id="11" name="applicationreceived.Person.Liquor" propertyPath="/Concepts/Person/Liquor" columnType="CONDITION"/>
+      <column id="12" name="applicationreceived.Person.MedicalHistory.LimbDeformity" propertyPath="/Concepts/MedicalHistory/LimbDeformity" propertyType="1" columnType="CONDITION"/>
+      <column id="13" name="applicationreceived.Person.MedicalHistory.OperationsDone" propertyPath="/Concepts/MedicalHistory/OperationsDone" propertyType="1" columnType="CONDITION"/>
+      <column id="14" name="applicationreceived.Person.MedicalHistory.EarlyDeaths" propertyPath="/Concepts/MedicalHistory/EarlyDeaths" propertyType="1" columnType="CONDITION"/>
+      <column id="15" name="applicationreceived.Person.MedicalHistory.ExtendedLives" propertyPath="/Concepts/MedicalHistory/ExtendedLives" propertyType="1" columnType="CONDITION"/>
+      <column id="3" name="Custom Action 1" columnType="CUSTOM_ACTION"/>
+      <column id="2" name="applicationreceived.AdverseFactor" propertyPath="/Concepts/Application/AdverseFactor" propertyType="1" columnType="ACTION"/>
+      <column id="16" name="applicationreceived.FavourableFactor" propertyPath="/Concepts/Application/FavourableFactor" propertyType="1" columnType="ACTION"/>
+    </columns>
+  </decisionTable>
+  <exceptionTable/>
+  <argument direction="BOTH">
+    <property path="/Events/CalculateRiskRating" alias="calculateriskrating" resourceType="EVENT"/>
+  </argument>
+  <argument direction="BOTH">
+    <property path="/Concepts/Application" alias="applicationreceived" resourceType="CONCEPT"/>
+  </argument>
+  <argument direction="BOTH">
+    <property path="/Concepts/RiskLimits" alias="riskLimits" resourceType="CONCEPT"/>
+  </argument>
+</Table:Table>
